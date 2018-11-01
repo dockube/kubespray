@@ -177,9 +177,8 @@
 
 - name: reset | remove dns settings from dhclient.conf
   blockinfile:
-    dest: "{{ item }}"
+    path: "{{ item }}"
     state: absent
-    follow: yes
     marker: "# Ansible entries {mark}"
   failed_when: false
   with_items:
@@ -189,15 +188,14 @@
     - files
     - dns
 
-# - name: reset | remove host entries from /etc/hosts
-#   blockinfile:
-#     dest: "/etc/hosts"
-#     state: absent
-#     follow: yes
-#     marker: "# Ansible inventory hosts {mark}"
-#   tags:
-#     - files
-#     - dns
+- name: reset | remove host entries from /etc/hosts
+  blockinfile:
+    path: "/etc/hosts"
+    state: absent
+    marker: "# Ansible inventory hosts {mark}"
+  tags:
+    - files
+    - dns
 
 - name: reset | include file with reset tasks specific to the network_plugin if exists
   include_tasks: "{{ (role_path + '/../network_plugin/' + kube_network_plugin + '/tasks/reset.yml') | realpath  }}"

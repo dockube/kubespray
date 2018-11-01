@@ -41,11 +41,7 @@ kubelet_kubelet_cgroups: "/systemd/system.slice"
 kubelet_disable_shared_pid: true
 
 ### fail with swap on (default true)
-#------------------------
-#   Customize DocKube
-#------------------------
-kubelet_fail_swap_on: false
-#------------------------
+kubelet_fail_swap_on: true
 
 # Reserve this space for kube resources
 kube_memory_reserved: 256M

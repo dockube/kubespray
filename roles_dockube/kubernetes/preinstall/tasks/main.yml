@@ -1,7 +1,7 @@
 ---
 # Disable swap
-#- import_tasks: 0010-swapoff.yml
-#  when: disable_swap
+- import_tasks: 0010-swapoff.yml
+  when: disable_swap
 
 - import_tasks: 0020-verify-settings.yml
   tags:
