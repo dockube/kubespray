@@ -17,7 +17,6 @@ bootstrap-os: ubuntu
 ## but don't know about that address themselves.
 #access_ip: 1.1.1.1
 
-
 ## External LB example config
 ## apiserver_loadbalancer_domain_name: "elb.some.domain"
 #loadbalancer_apiserver:
@@ -83,3 +82,7 @@ bootstrap-os: ubuntu
 
 ## Set true to download and cache container
 #download_container: true
+
+## Set Pypi repo and cert accordingly
+#pyrepo_index: https://pypi.example.com/simple
+#pyrepo_cert: /etc/ssl/certs/ca-certificates.crt
