@@ -39,7 +39,6 @@ staging-scale:
 staging-upgrade:
 	./kubespray-cmd.sh k8s-staging-upgrade
 
-
 #------------------------
 production-cluster:
 	./kubespray-cmd.sh k8s-production-cluster
@@ -55,3 +54,10 @@ production-scale:
 
 production-upgrade:
 	./kubespray-cmd.sh k8s-production-remove
+
+#------------------------
+mitogen:
+	ansible-playbook -c local mitogen.yaml -vv
+clean:
+	rm -rf dist/
+	rm *.retry
