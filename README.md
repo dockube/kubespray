@@ -5,7 +5,7 @@ DocKube Kubespray is a modification Kubespray for deployment Kubernetes with doc
 ### Why We Use DocKube ?
 * We don't need Vagrant environment and/or VirtualBox (VBox).
 * Replacement tools for Development Environment `MiniKube`.
-* We can validate our Kubernetes Cluster before deploying to Baremetal and/our using Cloud Service Provider.
+* We can validate our Kubernetes Cluster before deploying to Baremetal and/or using Cloud Service Provider.
 * Fast Provision, because using our own resources & docker container.
 
 ### Setup DocKube Kubespray
