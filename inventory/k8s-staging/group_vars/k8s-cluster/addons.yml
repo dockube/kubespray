@@ -3,7 +3,11 @@
 dashboard_enabled: true
 
 # Helm deployment
-helm_enabled: false
+#------------------------
+#   Customize DocKube
+#------------------------
+helm_enabled: true
+#------------------------
 
 # Registry deployment
 registry_enabled: false

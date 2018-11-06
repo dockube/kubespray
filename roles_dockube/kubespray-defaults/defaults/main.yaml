@@ -245,7 +245,11 @@ k8s_image_pull_policy: IfNotPresent
 dashboard_enabled: true
 
 # Addons which can be enabled
-helm_enabled: false
+#------------------------
+#   Customize DocKube
+#------------------------
+helm_enabled: true
+#------------------------
 registry_enabled: false
 enable_network_policy: true
 local_volume_provisioner_enabled: "{{ local_volumes_enabled | default('false') }}"
