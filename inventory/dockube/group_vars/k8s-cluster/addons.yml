@@ -15,22 +15,27 @@ registry_enabled: false
 # registry_storage_class: ""
 # registry_disk_size: "10Gi"
 
+# Metrics Server deployment
+metrics_server_enabled: false
+# metrics_server_kubelet_insecure_tls: true
+# metrics_server_metric_resolution: 60s
+# metrics_server_kubelet_preferred_address_types: "InternalIP"
+
 # Local volume provisioner deployment
 local_volume_provisioner_enabled: false
 # local_volume_provisioner_namespace: kube-system
 # local_volume_provisioner_storage_classes:
-#   - name: "{{ local_volume_provisioner_storage_class | default('local-storage') }}"
-#     host_dir: "{{ local_volume_provisioner_base_dir | default ('/mnt/disks') }}"
-#     mount_dir: "{{ local_volume_provisioner_mount_dir | default('/mnt/disks') }}"
-#   - name: "local-ssd"
-#     host_dir: "/mnt/local-storage/ssd"
-#     mount_dir: "/mnt/local-storage/ssd"
-#   - name: "local-hdd"
-#     host_dir: "/mnt/local-storage/hdd"
-#     mount_dir: "/mnt/local-storage/hdd"
-#   - name: "local-shared"
-#     host_dir: "/mnt/local-storage/shared"
-#     mount_dir: "/mnt/local-storage/shared"
+#   local-storage:
+#     host_dir: /mnt/disks
+#     mount_dir: /mnt/disks
+#   fast-disks:
+#     host_dir: /mnt/fast-disks
+#     mount_dir: /mnt/fast-disks
+#     block_cleaner_command:
+#       - "/scripts/shred.sh"
+#       - "2"
+#     volume_mode: Filesystem
+#     fs_type: ext4
 
 # CephFS provisioner deployment
 cephfs_provisioner_enabled: false
@@ -48,7 +53,12 @@ cephfs_provisioner_enabled: false
 ingress_nginx_enabled: false
 # ingress_nginx_host_network: false
 # ingress_nginx_nodeselector:
-#   node-role.kubernetes.io/master: ""
+#   node-role.kubernetes.io/node: ""
+# ingress_nginx_tolerations:
+#   - key: "node-role.kubernetes.io/master"
+#     operator: "Equal"
+#     value: ""
+#     effect: "NoSchedule"
 # ingress_nginx_namespace: "ingress-nginx"
 # ingress_nginx_insecure_port: 80
 # ingress_nginx_secure_port: 443
